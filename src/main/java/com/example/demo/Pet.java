@@ -4,7 +4,7 @@ public class Pet {
     private String name;
     private int age;
     private boolean gender;
-    private String type;
+    private boolean type;
     private String breed;
 
     public String getName() {
@@ -31,11 +31,11 @@ public class Pet {
         this.gender = gender;
     }
 
-    public String getType() {
+    public boolean getType() {
         return type;
     }
 
-    public void setType(String type) {
+    public void setType(boolean type) {
         this.type = type;
     }
 
