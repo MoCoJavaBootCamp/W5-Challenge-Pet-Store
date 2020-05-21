@@ -40,16 +40,14 @@
 
 <form action="#" th:action="@{/customerform}" th:object="${customer}" method="post">
     Name: <input type="text" th:field="*{name}"/>
-    <span th:if="${#fields.hasErrors('customer')}" th:errors="*{customer}"></span> <br/>
-    Phone: <input type="number" th:field="*{number}"/>
-    <span th:if="${#fields.hasErrors('number')}" th:errors="*{number}"></span> <br/>
+    <span th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></span> <br/>
+    Phone: <input type="text" th:field="*{phone}"/>
+    <span th:if="${#fields.hasErrors('phone')}" th:errors="*{phone}"></span> <br/>
     <div>
         <label for="type">Pet Type: </label>
-        <select id="type" th:field="*{type}">
-            <option value="" selected="selected">dog</option>
-            <option th:each="roleOpt : ${userRoleOptions.entrySet()}"
-                    th:value="${roleOpt.key}"
-                    th:text="${Pet.type}">cat</option>
+        <select id="type" th:field="*{pet.type}">
+            <option value="dog" selected="selected">dog</option>
+            <option value="cat">cat</option>
         </select>
     </div>
     <button class="btn btn-primary" type="submit">Submit form</button>
