@@ -27,7 +27,7 @@ public class HomeController {
         if (result.hasErrors()) {
             return "customerform";
         }
-        return "customerconfirm";
+        return "dogform";
     }
 
     public void process(

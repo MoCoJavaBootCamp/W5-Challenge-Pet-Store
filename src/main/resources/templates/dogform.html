@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Dog Details</title>
+</head>
+<body>
+
+<p th:inline="text">
+    Customer Name: [[${customer.name}]]<br/>
+    Pet Type: [[${customer.type}]]
+</p>
+<form action="#" th:action="@{/dogform}" th:object="${dog}" method="post">
+    <div>
+        <label for="type">Breed: </label>
+        <select id="type" th:field="*{type}">
+            <option value="" selected="selected">Alaskan Husky</option>
+            <option th:each="roleOpt : ${userRoleOptions.entrySet()}"
+                    th:value="${roleOpt.key}"
+                    th:text="${Pet.type}">Boxer</option>
+            <option th:each="roleOpt : ${userRoleOptions.entrySet()}"
+                    th:value="${roleOpt.key}"
+                    th:text="${Pet.type}">Chihuahua</option>
+            <option th:each="roleOpt : ${userRoleOptions.entrySet()}"
+                    th:value="${roleOpt.key}"
+                    th:text="${Pet.type}">Golden Retriever</option>
+            <option th:each="roleOpt : ${userRoleOptions.entrySet()}"
+                    th:value="${roleOpt.key}"
+                    th:text="${Pet.type}">Maltese</option>
+            <option th:each="roleOpt : ${userRoleOptions.entrySet()}"
+                    th:value="${roleOpt.key}"
+                    th:text="${Pet.type}">Poodle</option>
+            <option th:each="roleOpt : ${userRoleOptions.entrySet()}"
+                    th:value="${roleOpt.key}"
+                    th:text="${Pet.type}">Shar Pei</option>
+            <option th:each="roleOpt : ${userRoleOptions.entrySet()}"
+                    th:value="${roleOpt.key}"
+                    th:text="${Pet.type}">Yorkshire Terrier</option>
+        </select>
+    </div>
+    <button class="btn btn-primary" type="submit">Submit form</button>
+
+
+
+
+
+
+
+
+
+</form>
+
+</body>
+</html>
