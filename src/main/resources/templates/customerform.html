@@ -1,15 +1,16 @@
-<!doctype html>
-<html lang="en">
+<!DOCTYPE html>
+<html lang="en" xmlns:th="www.thymeleaf.org">
 <head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
           integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 
-    <title>Hello, world!</title>
+
+    <title>Add New Customer</title>
+
 </head>
 <body>
 
@@ -37,9 +38,43 @@
     </div>
 </nav>
 
-<h1>List Customer Info Here</h1>
+<form action="#" th:action="@{/customerform}" th:object="${customer}" method="post">
+    Name: <input type="text" th:field="*{name}"/>
+    <span th:if="${#fields.hasErrors('customer')}" th:errors="*{customer}"></span> <br/>
+    Phone: <input type="number" th:field="*{number}"/>
+    <span th:if="${#fields.hasErrors('number')}" th:errors="*{number}"></span> <br/>
+    Pet Type:
 
-<!-- Optional JavaScript -->
+    <input type="submit" value="Submit">
+</form>
+
+<form method="post" th:object="${car}" class="mt-5">
+    <div class="form-group">
+        <label>Model</label>
+        <div th:each="model : ${T(com.frontbackend.thymeleaf.bootstrap.model.CarModel).values()}">
+            <div class="custom-control custom-radio custom-control-inline">
+                <input type="radio" th:field="*{carModel}" th:value="${model}" class="custom-control-input">
+                <label class="custom-control-label" th:for="${#ids.prev('carModel')}" th:text="${model}">model</label>
+            </div>
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="custom-control custom-radio custom-control-inline">
+            <input type="radio" id="option1" name="option1" class="custom-control-input" value="1" th:field="*{option}">
+            <label class="custom-control-label" for="option1">Option1</label>
+        </div>
+        <div class="custom-control custom-radio custom-control-inline">
+            <input type="radio" id="option2" name="option2" class="custom-control-input" value="2" th:field="*{option}">
+            <label class="custom-control-label" for="option2">Option2</label>
+        </div>
+        <div class="custom-control custom-radio custom-control-inline">
+            <input type="radio" id="option3" name="option3" class="custom-control-input" value="3" th:field="*{option}">
+            <label class="custom-control-label" for="option3">Option3</label>
+        </div>
+    </div>
+    <button class="btn btn-primary" type="submit">Submit form</button>
+</form>
+
 <!-- jQuery first, then Popper.js, then Bootstrap JS -->
 <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
         integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
@@ -50,5 +85,6 @@
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
         integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
         crossorigin="anonymous"></script>
+
 </body>
 </html>

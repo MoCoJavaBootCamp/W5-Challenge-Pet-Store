@@ -3,7 +3,7 @@ package com.example.demo;
 public class Pet {
     private String name;
     private int age;
-    private String gender;
+    private boolean gender;
     private String type;
     private String breed;
 
@@ -23,11 +23,11 @@ public class Pet {
         this.age = age;
     }
 
-    public String getGender() {
+    public boolean getGender() {
         return gender;
     }
 
-    public void setGender(String gender) {
+    public void setGender(boolean gender) {
         this.gender = gender;
     }
 
